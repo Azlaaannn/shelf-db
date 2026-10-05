@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shelf — your reading database</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Shelf</h1>
+    <p>A reading tracker backed by a real database. Every book you add is stored on the server and is there on any device.</p>
+    <div class="stats" id="stats"></div>
+  </header>
+  <div id="error"></div>
+  <main>
+    <section class="panel" aria-labelledby="formTitle">
+      <h2 id="formTitle">Add a book</h2>
+      <div id="formBox">
+        <label for="title">Title</label>
+        <input id="title" maxlength="120" autocomplete="off">
+        <label for="author">Author</label>
+        <input id="author" maxlength="80" autocomplete="off">
+        <div class="row">
+          <div><label for="status">Status</label>
+            <select id="status"><option value="want">Want to read</option><option value="reading">Reading</option><option value="read">Read</option></select></div>
+          <div><label for="rating">Rating</label>
+            <select id="rating"><option value="0">None</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        </div>
+        <label for="notes">Notes</label>
+        <textarea id="notes" maxlength="500"></textarea>
+        <div class="actions">
+          <button class="primary" id="save">Save book</button>
+          <button id="cancel" hidden>Cancel edit</button>
+        </div>
+      </div>
+    </section>
+    <section aria-label="Your books">
+      <div class="toolbar">
+        <input id="q" type="search" placeholder="Search title, author or notes" aria-label="Search books">
+        <select id="filter" aria-label="Filter by status">
+          <option value="all">All books</option><option value="want">Want to read</option><option value="reading">Reading</option><option value="read">Read</option>
+        </select>
+      </div>
+      <div class="list" id="list"></div>
+    </section>
+  </main>
+  <p class="foot">Books are stored in a Netlify Database (Postgres) through the /api/books function.</p>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

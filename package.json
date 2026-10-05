@@ -1,0 +1,7 @@
+{
+  "name": "shelf",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "netlify dev" },
+  "dependencies": { "@netlify/database": "latest" }
+}
